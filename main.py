@@ -433,7 +433,8 @@ async def main():
                         if is_paused:
                             pygame.mixer.music.pause()
                         else:
-                            pygame.mixer.music.unpause()
+                            if not is_muted:
+                                pygame.mixer.music.unpause()
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_UP and direction != (0, 1):
                         direction = (0, -1)
